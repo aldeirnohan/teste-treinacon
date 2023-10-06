@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @var Laminas\View\Renderer\PhpRenderer $this
+ * @var \User\Model\User $user
+ */
+
+$title = 'Edit User';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+
+<form method="post" action="<?= $this->url('user', ['action' => 'update', 'id' => $user->getId()]) ?>">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" value="<?= $this->escapeHtml($user->getName()) ?>" required>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" value="<?= $this->escapeHtml($user->getEmail()) ?>" required>
+
+    <label for="email">PassWord:</label>
+    <input type="password" name="password" id="password" value="<?= $this->escapeHtml($user->getPassword()) ?>" required>
+
+    <button type="submit">Update User</button>
+</form>
+
+<a href="<?= $this->url('user', ['action' => 'index']) ?>">Back to User List</a>

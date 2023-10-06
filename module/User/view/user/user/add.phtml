@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @var Laminas\View\Renderer\PhpRenderer $this
+ */
+
+$title = 'Create User';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+
+<form method="post" action="<?= $this->url('user', ['action' => 'save']) ?>">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required>
+
+    <label for="password">PassWord:</label>
+    <input type="password" name="password" id="password" required>
+
+    <button type="submit">Create User</button>
+</form>
+
+<a href="<?= $this->url('user', ['action' => 'index']) ?>">Back to User List</a>
