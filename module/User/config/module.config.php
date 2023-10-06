@@ -36,6 +36,42 @@ return [
                     ],
                 ],
             ],
+            'user-create' => [
+                'type'    => Literal::class,
+                'options' => [
+                    'route'    => '/user/create',
+                    'defaults' => [
+                        'controller' => Controller\UserController::class,
+                        'action'     => 'create',
+                    ],
+                ],
+            ],
+            'user-edit' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route'    => '/user/edit/:id',
+                    'constraints' => [
+                        'id' => '[0-9]+',
+                    ],
+                    'defaults' => [
+                        'controller' => Controller\UserController::class,
+                        'action'     => 'edit',
+                    ],
+                ],
+            ],
+            'user-delete' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route'    => '/user/delete/:id',
+                    'constraints' => [
+                        'id' => '[0-9]+',
+                    ],
+                    'defaults' => [
+                        'controller' => Controller\UserController::class,
+                        'action'     => 'delete',
+                    ],
+                ],
+            ],
         ],
     ],
     'view_manager' => [
