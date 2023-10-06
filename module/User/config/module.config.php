@@ -36,13 +36,13 @@ return [
                     ],
                 ],
             ],
-            'user-create' => [
+            'user-add' => [
                 'type'    => Literal::class,
                 'options' => [
-                    'route'    => '/user/create',
+                    'route'    => '/user/add',
                     'defaults' => [
                         'controller' => Controller\UserController::class,
-                        'action'     => 'create',
+                        'action'     => 'add',
                     ],
                 ],
             ],
