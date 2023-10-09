@@ -17,6 +17,12 @@ $this->headTitle($title);
     <a href="<?= $this->url('user', ['action' => 'add']) ?>">Add new user</a>
 </p>
 
+<form method="get" action="<?= $this->url('user', ['action' => 'index']) ?>">
+    <label for="search">Search:</label>
+    <input type="text" name="search" id="search" value="<?= $this->escapeHtml(isset($_GET['search']) ? $_GET['search'] : '') ?>">
+    <button type="submit">Search</button>
+</form>
+
 <table class="table">
 <tr>
     <th>Name</th>

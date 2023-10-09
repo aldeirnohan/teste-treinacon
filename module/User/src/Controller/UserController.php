@@ -32,10 +32,19 @@ class UserController extends AbstractActionController
     }
 
     public function indexAction(){
-        $users = $this->entityManager->getRepository(User::class)->findAll();
+
+        $search = $this->params()->fromQuery('search', '');
+
+        if($search){
+            $users = $this->entityManager->getRepository(User::class)->findBySearch($search);
+        }else{
+            $users = $this->entityManager->getRepository(User::class)->findAll();
+            
+        }
 
         return new ViewModel([
-            'users' => $users
+            'users' => $users,
+            'search' => $search,
         ]);
     }
 
